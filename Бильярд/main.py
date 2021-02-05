@@ -11,12 +11,13 @@ while not was_closed:
     game = gamestate.GameState()
     button_pressed = graphics.draw_main_menu(game)
 
-    if button_pressed == config.classic_mode_game_button or button_pressed == config.free_mode_game_button:
-        if button_pressed == config.free_mode_game_button:
-            pass
+    if button_pressed == config.classic_mode_game_button or button_pressed == config.fast_mode_game_button:
+        time = True
+        if button_pressed == config.fast_mode_game_button:
+            time = 600
         game.start_pool()
         events = event.events()
-        while not (events["closed"] or game.is_game_over or events["quit_to_main_menu"]):
+        while (not (events["closed"] or game.is_game_over or events["quit_to_main_menu"])) and time:
             events = event.events()
             collisions.resolve_all_collisions(game.balls, game.holes, game.table_sides)
             game.redraw_all()
@@ -32,6 +33,7 @@ while not was_closed:
                         game.cue.cue_is_active(game, events)
                     elif game.can_move_white_ball and game.white_ball.is_clicked(events):
                         game.white_ball.is_active(game, game.is_behind_line_break())
+            time -= 1
         was_closed = events["closed"]
 
     if button_pressed == config.exit_button:

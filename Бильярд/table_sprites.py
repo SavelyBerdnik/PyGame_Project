@@ -85,8 +85,8 @@ class TableColoring(pygame.sprite.Sprite):
                         draw_to_player.append(2)
 
                 for player in draw_to_player:
-                    ball.create_image(self.image, (start_x[player - 1] - 10, start_y))
-                    start_x[player - 1] += config.ball_radius * 2 - 5 + config.target_ball_spacing
+                    ball.create_image(self.image, (start_x[player - 1], start_y))
+                    start_x[player - 1] += config.ball_radius * 2 + config.target_ball_spacing
 
     def generate_top_left_label(self, game_state):
         top_left_text = ""

@@ -22,7 +22,7 @@ fullscreen = False
 # fullscreen resolution can only be known after initialising the screen
 if not fullscreen:
     resolution = np.array([1000, 500])
-fps_limit = 600
+fps_limit = 1200
 
 # table settings
 table_margin = 40
@@ -102,18 +102,18 @@ table_coeff_of_restitution = 0.9
 menu_text_color = (255, 255, 255)
 menu_text_selected_color = (0, 0, 255)
 menu_title_text = "Бильярд"
-menu_buttons = ["Классика", "Свободный", "Выход"]
+menu_buttons = ["Быстрый режим", "Классика", "Выход"]
 menu_margin = 50
 menu_spacing = 10
 menu_title_font_size = 40
 menu_option_font_size = 20
 exit_button = 3
-classic_mode_game_button = 1
-free_mode_game_button = 2
+classic_mode_game_button = 2
+fast_mode_game_button = 1
 
 # in-game ball target variables
-player1_target_text = 'P1 balls - '
-player2_target_text = 'P2 balls - '
+player1_target_text = 'P1 balls'
+player2_target_text = 'P2 balls'
 target_ball_spacing = 3
 player1_turn_label = "Player 1 turn"
 player2_turn_label = "Player 2 turn"
